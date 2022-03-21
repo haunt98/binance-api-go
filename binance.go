@@ -69,13 +69,13 @@ func (s *service) GetCandlestick(ctx context.Context, req GetCandlestickRequest)
 	if _, err := jsonparser.ArrayEach(data, func(value []byte, dataType jsonparser.ValueType, offset int, err error) {
 		candlestick := Candlestick{}
 
-		candlestick.OpenTime, _ = jsonparser.GetInt(value, "[0]")
+		candlestick.OpenTimeMs, _ = jsonparser.GetInt(value, "[0]")
 		candlestick.Open, _ = jsonparser.GetString(value, "[1]")
 		candlestick.High, _ = jsonparser.GetString(value, "[2]")
 		candlestick.Low, _ = jsonparser.GetString(value, "[3]")
 		candlestick.Close, _ = jsonparser.GetString(value, "[4]")
 		candlestick.Volume, _ = jsonparser.GetString(value, "[5]")
-		candlestick.CloseTime, _ = jsonparser.GetInt(value, "[6]")
+		candlestick.CloseTimeMs, _ = jsonparser.GetInt(value, "[6]")
 		candlestick.QuoteAssetVolume, _ = jsonparser.GetString(value, "[7]")
 		candlestick.NumberOfTrades, _ = jsonparser.GetInt(value, "[8]")
 		candlestick.TakerBuyBaseAssetVolume, _ = jsonparser.GetString(value, "[9]")
